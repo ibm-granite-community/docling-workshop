@@ -41,9 +41,12 @@ Running the lab notebooks locally on your computer requires the following steps:
 
 Clone the workshop repo and cd into the repo directory.
 
-```shell
+```
+
+shell
 git clone https://github.com/IBM/docling-workshop.git
 cd docling-workshop
+
 ```
 [Lab 3: Multimodal RAG with Visual Grounding using Docling](../lab-3/README.md) requires Replicate.
 

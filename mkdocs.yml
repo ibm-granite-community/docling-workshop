@@ -35,7 +35,7 @@ theme:
     code: IBM Plex Mono
   icon:
     logo: material/library
-  logo: images/ibm-blue-background.png
+  logo: images/DoclingDuck.png
   favicon: images/favicon.ico
   features:
     - navigation.tabs
@@ -44,8 +44,8 @@ theme:
     - content.code.copy
   palette:
     scheme: default
-    primary: blue
-    accent: blue
+    primary: deep orange
+    accent: deep orange
 
 # Plugins
 plugins:
