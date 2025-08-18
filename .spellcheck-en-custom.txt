@@ -2,3 +2,17 @@ Docling
 Zhao
 ibm
 png
+Colab
+Jupyter
+Multimodal
+colab
+config
+ipynb
+pre
+repo
+url
+Pre
+TPU
+cd
+venv
+Vectorization
