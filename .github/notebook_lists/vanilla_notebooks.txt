@@ -1,2 +1,3 @@
 # Notebooks to test
-notebooks/*.ipynb
+notebooks/Chunking.ipynb
+notebooks/RAG.ipynb
