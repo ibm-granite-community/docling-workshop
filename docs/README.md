@@ -1,52 +1,49 @@
 ---
 title: Docling Workshop
 description: Learn how to leverage Docling
-logo: images/ibm-blue-background.png
+logo: images/DoclingDuck.png
 ---
 
 # Introduction
 
 Welcome to our workshop!
 
-<!-- In this workshop we'll be using the open-sourced [IBM Granite
-AI foundation models](https://www.ibm.com/granite) for a number of use cases that
-demonstrates the value of [generative AI](https://developer.ibm.com/generative-ai-for-developers).
+In this workshop we'll be walking through the features of [Docling](https://docling-project.github.io/docling/)
 
-By the end of this workshop, you will be able to:
+By the end of this workshop, you will be able to use Docling to:
 
-* Summarize a text document using [text summarization](https://www.ibm.com/topics/text-summarization)
-* Generate specific information from a large document using the [RAG](https://research.ibm.com/blog/retrieval-augmented-generation-RAG) technique
-* Predict future trends using [time series forecasting](https://research.ibm.com/blog/AI-time-series-forecasting)
-* Generate programming code ([Bash](https://opensource.com/resources/what-bash)) by [prompting](https://en.wikipedia.org/wiki/Prompt_engineering) a code model -->
+* Convert complex documents into various formats suitable for AI
+* Understand the various methods of [Chunking](https://www.ibm.com/architectures/papers/rag-cookbook/chunking) and how to use them
+* Create a transparent and verifiable multimodal [RAG](https://research.ibm.com/blog/retrieval-augmented-generation-RAG) application
 
-<!-- ### About this workshop
+
+About this workshop
 
 The introductory page of the workshop is broken down into the following sections:
 
 * [Agenda](#agenda)
 * [Technology Used](#technology-used)
-* [Credits](#credits) -->
+* [Credits](#credits)
 
-<!-- ## Agenda
+## Agenda
 
 |  |  |
 | :--- | :--- |
 | [Lab 0: Pre-work](pre-work/README.md)  | Pre-work for the workshop |
-| [Lab 1: Document Summarization with Granite](lab-1/README.md) | Learn how to use an AI model to summarize a work of literature |
-| [Lab 2: Retrieval Augmented Generation (RAG) with Langchain](lab-2/README.md)| Learn how to generate specific information from a large document |
-| [Lab 3: Energy Demand Forecasting with Granite Timeseries (TTM)](lab-3/README.md) | Learn how to predict future trends using time series forecasting |
-| [Lab 4: Generating Bash Code with Granite Code](lab-4/README.md) | Learn how to use an AI model to generate programming code | -->
+| [Lab 1: Document Conversion with Docling](lab-1/README.md) | Learn how to use Docling to convert complex documents |
+| [Lab 2: Chunking and Vectorization with Docling](lab-2/README.md)| Learn how Docling enables advanced chunking |
+| [Lab 3: Multimodal RAG with Docling](lab-3/README.md) | Building a verifiable multimodal RAG system |
 
-<!-- ## Technology Used
+## Technology Used
 
 The technology used in the workshop is as follows:
 
 * [Google Colab](https://colab.research.google.com)
-* [IBM Granite AI foundation models](https://www.ibm.com/granite)
+* [Docling](https://docling-project.github.io/docling/)
 * [Jupyter notebooks](https://jupyter.org/)
 * [LangChain](https://www.langchain.com/)
-* [Ollama](https://ollama.com)
-* [Replicate](https://replicate.com/) -->
+* [Replicate](https://replicate.com/)
+* [IBM Granite AI foundation models](https://www.ibm.com/granite)
 
 ## Credits
 
