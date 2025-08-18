@@ -16,7 +16,6 @@ By the end of this workshop, you will be able to use Docling to:
 * Understand the various methods of [Chunking](https://www.ibm.com/architectures/papers/rag-cookbook/chunking) and how to use them
 * Create a transparent and verifiable multimodal [RAG](https://research.ibm.com/blog/retrieval-augmented-generation-RAG) application
 
-
 About this workshop
 
 The introductory page of the workshop is broken down into the following sections:
