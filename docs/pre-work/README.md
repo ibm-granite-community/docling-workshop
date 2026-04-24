@@ -67,7 +67,7 @@ cd docling-workshop
 Some labs require Granite models to be served by an AI model runtime so that the models can be invoked or called. The following sections provide instructions to either run the models in the cloud using [Replicate](https://replicate.com/) or locally using [Ollama](https://ollama.com/) or [LM Studio](https://lmstudio.ai/).
 
 /// note | Notebook requirements
-[Lab 3. Multimodal RAG with Visual Grounding using Docling](../lab-3/README.md) requires either Replicate, Ollama, or LM Studio to serve the Granite AI models.
+[Lab 3. Multimodal RAG with Visual Grounding using Docling](../lab-3/README.md) and [Lab 4. Chunkless RAG with Docling](../lab-4/README.md) both require either Replicate, Ollama, or LM Studio to serve the Granite AI models.
 ///
 
 #### Replicate AI Cloud Platform

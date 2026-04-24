@@ -2,3 +2,4 @@
 notebooks/Conversion.ipynb
 notebooks/Chunking.ipynb
 notebooks/RAG.ipynb
+notebooks/Chunkless_RAG.ipynb

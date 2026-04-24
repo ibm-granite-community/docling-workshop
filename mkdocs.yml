@@ -17,9 +17,10 @@ nav:
      - Lab 1. Document Conversion with Docling: lab-1/README.md
      - Lab 2. Chunking and Vectorization with Docling: lab-2/README.md
      - Lab 3. Multimodal RAG with Docling: lab-3/README.md
-     - Lab 4. Docling as a Service: lab-4/README.md
-     - Lab 5. Token Cost Comparison: lab-5/README.md
-     - Lab 6. Docling + MCP for AI Agents: lab-6/README.md
+     - Lab 4. Chunkless RAG with Docling: lab-4/README.md
+     - Lab 5. Docling as a Service: lab-5/README.md
+     - Lab 6. Token Cost Comparison: lab-6/README.md
+     - Lab 7. Docling + MCP for AI Agents: lab-7/README.md
   - References:
      - Troubleshooting: troubleshooting/README.md
      - Docling Docs: https://docling-project.github.io/docling/

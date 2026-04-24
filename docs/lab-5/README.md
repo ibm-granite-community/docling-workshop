@@ -1,40 +1,40 @@
 ---
-title: Lab 5. Token Cost Comparison
-description: Compare token costs for PDF Q&A with and without Docling preprocessing
+title: Lab 5. Docling as a Service
+description: Learn to deploy Docling as a REST API service
 logo: images/DoclingDuck.png
-notebook: notebooks/Token_Cost_Comparison.ipynb
+notebook: notebooks/Serving.ipynb
 ---
 
-# Comparing Token Costs for PDF Q&A with Claude
+# Docling as a Service
 
-In this lab, you'll compare the token cost and response quality when asking questions about a PDF using two approaches: uploading the PDF directly to Claude versus preprocessing it with Docling first.
+In this lab, you'll learn how to deploy Docling as a scalable REST API service using **docling-serve**.
 
 ## Learning Objectives
 
 By the end of this lab, you will:
 
-- Understand how Claude processes uploaded PDFs (vision-based, ~1,500-3,000 tokens per page)
-- Extract text from PDFs using Docling and count tokens with the Anthropic SDK
-- Calculate and compare costs across Claude model tiers
-- Evaluate the trade-offs between direct upload and Docling preprocessing
+- Deploy Docling as a REST API service
+- Make HTTP requests to convert documents
+- Use the chunking API for RAG applications
+- Batch process multiple documents
+- Deploy docling-serve with Docker
 
 ## Prerequisites
 
 - Python 3.10 or later
-- Completed Labs 1-2 (recommended)
-- A PDF document to analyze
-- (Optional) An Anthropic API key for accurate token counting
+- Completed Labs 1-3 (recommended)
+- Basic understanding of REST APIs
 
-## Why Compare Approaches?
+## Why docling-serve?
 
-When using Claude for PDF Q&A, you have two options:
+While the Python library is great for scripts and notebooks, **docling-serve** enables:
 
-| Approach | How It Works | Token Impact |
-| ---------- | ------------- | -------------- |
-| **Direct Upload** | Claude processes each page as an image + text | ~1,500-3,000 tokens per page |
-| **Docling Preprocessing** | Extract text first, send only the text to Claude | Typically fewer tokens for text-heavy documents |
-
-Choosing the right approach can significantly reduce costs, especially for large or text-heavy documents.
+| Feature | Benefit |
+| --------- | --------- |
+| REST API | Use Docling from any language |
+| Scalability | Handle concurrent requests |
+| Microservices | Integrate with existing infrastructure |
+| Batch Processing | Process document collections efficiently |
 
 ## Running the Lab
 
@@ -51,25 +51,63 @@ jupyter notebook {{ notebook }}
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg "Open In Colab")]({{ extra.colab_url }}/blob/{{ git.commit }}/{{ notebook }}){:target="_blank"}
 
-## What You'll Do
+/// note | Local Server Required
+This lab requires running docling-serve locally. Google Colab can be used for learning the API patterns, but you'll need a local environment to run the server.
+///
 
-1. **Estimate direct upload tokens** — Calculate the token cost of uploading a PDF directly to Claude based on page count
-2. **Extract text with Docling** — Use `DocumentConverter` to extract structured markdown from the PDF
-3. **Count tokens** — Use the Anthropic SDK's `count_tokens()` API for accurate token measurement
-4. **Compare costs** — See a side-by-side cost comparison across Claude model tiers (Sonnet, Haiku)
-5. **Try both approaches** — Follow guided instructions to ask the same questions via direct upload and preprocessed text, then compare response quality
+## Quick Start
 
-## When to Use Each Approach
+### Starting the Server
 
-| Use Direct Upload When... | Use Docling Preprocessing When... |
-| -------------------------- | ---------------------------------- |
-| Document is image-heavy (diagrams, charts) | Document is primarily text |
-| Quick one-off questions | Repeated queries on the same document |
-| Visual layout matters for understanding | Cost optimization is important |
-| Small documents (< 5 pages) | Large documents (> 10 pages) |
+```shell
+# Install docling-serve
+pip install docling-serve
+
+# Start the server
+docling-serve run
+
+# Server runs at http://localhost:5000
+```
+
+### Making a Request
+
+```python
+import httpx
+
+response = httpx.post(
+    "http://localhost:5001/v1/convert/source",
+    json={
+        "sources": [{"kind": "http", "url": "https://arxiv.org/pdf/2501.17887"}],
+        "options": {
+            "do_ocr": False,  # Set True if easyocr is installed
+            "pdf_backend": "dlparse_v2",
+        }
+    },
+    timeout=120.0
+)
+
+result = response.json()
+print(result.get('md', '')[:500])
+```
+
+## Key API Endpoints
+
+| Endpoint | Method | Description |
+| ---------- | -------- | ------------- |
+| `/health` | GET | Health check |
+| `/v1/convert/source` | POST | Convert from URL |
+| `/v1/convert/file` | POST | Convert uploaded file |
+| `/docs` | GET | OpenAPI documentation |
+
+## Docker Deployment
+
+```bash
+# Run with Docker
+docker run -p 5000:5000 quay.io/docling-project/docling-serve
+```
 
 ## Resources
 
-- [Anthropic Token Counting API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting)
+- [docling-serve GitHub](https://github.com/docling-project/docling-serve)
+- [API Documentation](http://localhost:5000/docs) (when server is running)
 - [Docling Documentation](https://docling-project.github.io/docling/)
-- [Claude Pricing](https://www.anthropic.com/pricing)
