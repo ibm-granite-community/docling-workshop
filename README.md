@@ -1,11 +1,5 @@
 # Docling Workshop
 
-
-r8_BAl 
-60GInFUsDesd
-VsKjG9TYju0ZB
-fSQ08M9RG
-
 This is the Docling workshop hosted on GitHub Pages using Material for MkDocs. To view it online, go to:
 
 <https://ibm-granite-community.github.io/docling-workshop>
