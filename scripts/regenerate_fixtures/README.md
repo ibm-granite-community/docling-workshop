@@ -19,9 +19,12 @@ fresh copy, pull it from there and re-upload as the `fixtures/v1` asset.
 
 ## Scripts
 
-- `reenrich_ibm_concise.py` — parses the IBM 2025 annual report PDF with
-  Docling, then runs `DoclingEnrichingAgent` with a one-phrase summary
-  prompt. Produces `ibm_annual_report_enriched_concise.json`.
+- `reenrich_ibm_concise.py` — loads a Docling-parsed IBM 2025 annual report
+  JSON, then runs `DoclingEnrichingAgent` with a one-phrase summary prompt.
+  Produces `ibm_annual_report_enriched_concise.json`. You must supply the
+  parsed JSON yourself — it is not committed to the repo. Either drop it at
+  `notebooks/fixtures/ibm_annual_report_parsed.json` or point the
+  `IBM_PARSED_JSON` environment variable at its location.
 
 ## Regeneration workflow
 
@@ -38,9 +41,10 @@ uv pip install \
 python scripts/regenerate_fixtures/reenrich_ibm_concise.py
 ```
 
-Note: the script uses hardcoded source and destination paths (see the script for details).
-If you need to regenerate from a different source PDF or write to a different location,
-edit the script's `src` and `dst` variables before running.
+The script writes to `notebooks/fixtures/ibm_annual_report_enriched_concise.json`,
+overwriting the committed fixture in-place. Source defaults to
+`notebooks/fixtures/ibm_annual_report_parsed.json`; override with `IBM_PARSED_JSON`
+if your parsed JSON lives elsewhere.
 
 Upload the new asset, overwriting the existing `fixtures/v1` release:
 
