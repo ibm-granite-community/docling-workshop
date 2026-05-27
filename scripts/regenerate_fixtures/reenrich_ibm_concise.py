@@ -63,8 +63,13 @@ DoclingEnrichingAgent._generate_summary = _patched_generate_summary
 # --- Go ---
 assert os.environ.get("REPLICATE_API_TOKEN"), "Set REPLICATE_API_TOKEN first"
 
-src = Path("/Users/mingxuanzhao/scratch/chunkless-rag-tutorial/ibm_annual_report_parsed.json")
-dst = Path("/Users/mingxuanzhao/scratch/chunkless-rag-tutorial/ibm_annual_report_enriched_concise.json")
+# Paths default to <repo>/notebooks/fixtures/. The parsed-JSON source is not
+# committed to the repo; either drop it at the default path or point IBM_PARSED_JSON
+# at it. The destination overwrites the committed fixture in-place.
+FIXTURES = Path(__file__).resolve().parents[2] / "notebooks" / "fixtures"
+src = Path(os.environ.get("IBM_PARSED_JSON", FIXTURES / "ibm_annual_report_parsed.json"))
+dst = FIXTURES / "ibm_annual_report_enriched_concise.json"
+assert src.exists(), f"Source parsed JSON not found at {src}. Set IBM_PARSED_JSON or place the file at the default path."
 
 doc = DoclingDocument.load_from_json(src)
 
