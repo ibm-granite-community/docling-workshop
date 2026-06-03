@@ -19,7 +19,7 @@ from mellea.stdlib.context import ChatContext
 import docling_agent.agent_models as _am
 from docling_agent.agents import DoclingEnrichingAgent
 
-MODEL_ID = model_ids.IBM_GRANITE_4_HYBRID_SMALL
+MODEL_ID = model_ids.IBM_GRANITE_4_1_8B
 
 # --- Replicate backend monkey-patch ---
 def _make_backend(model_id):
