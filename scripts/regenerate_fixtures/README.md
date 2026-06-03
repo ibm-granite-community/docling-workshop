@@ -36,7 +36,7 @@ uv pip install \
     "docling>=2.40" \
     "docling-core>=2.70,<3" \
     "docling-agent==0.1.0" \
-    "mellea[litellm]==0.4.*"
+    "mellea[litellm]==0.5.*"
 
 python scripts/regenerate_fixtures/reenrich_ibm_concise.py
 ```
@@ -59,6 +59,6 @@ and update the notebook URLs.
 
 ## Model used for summaries
 
-Current: `IBM Granite 4.0 Hybrid Small` via Replicate. If you change
+Current: `IBM Granite 4.1 8B` via Replicate. If you change
 the model, note it in the commit message so future maintainers can
 correlate answer-quality changes to model changes.
