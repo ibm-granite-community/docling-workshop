@@ -89,7 +89,7 @@ jobs:
       - test_workflow_ready
     permissions:
       contents: read
-    uses: ibm-granite-community/utils/.github/workflows/test_notebook.yaml@main  # zizmor: ignore[unpinned-uses]
+    uses: ibm-granite-community/utils/.github/workflows/test_notebook.yaml@main
     secrets:
       REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
     with:

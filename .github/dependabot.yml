@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
 # GitHub Dependabot configuration file
 version: 2
 updates:
@@ -5,7 +7,15 @@ updates:
   - package-ecosystem: "github-actions"
     directories:
     - "/"
+    - ".github/actions"
     schedule:
       interval: "daily"
     cooldown:
       default-days: 7
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "github_actions"
