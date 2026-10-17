@@ -44,15 +44,6 @@ This lab requires VS Code, Ollama, and the Continue extension.
 It cannot run on Google Colab.
 ///
 
-1. Ensure you have completed the [Pre-work](../pre-work/README.md)
-2. Start Jupyter and open the notebook:
-
-```shell
-jupyter notebook {{ notebook }}
-```
-
-## Lab
-
 [![Docling MCP Agents Notebook](https://badgen.net/badge/icon/github?icon=github&label=View%20on "View on GitHub")]({{ config.repo_url }}/blob/{{ git.commit }}/{{ notebook }}){:target="_blank"}
 
 To run the notebook from your command line in Jupyter using the active
@@ -79,14 +70,18 @@ ollama pull granite4.2:8b
 Edit `~/.continue/config.yaml`:
 
 ```yaml
-name: Docling Workshop
-version: 0.0.1
+name: Main Config
+version: 1.0.0
 schema: v1
 
 models:
   - name: Granite 4.2
     provider: ollama
     model: granite4.2:8b
+    requestOptions:
+      extraBodyProperties:
+        options:
+          num_ctx: 16384
     apiBase: http://localhost:11434
     roles:
       - chat
@@ -110,10 +105,18 @@ docling-mcp sends conversions to the Docling service at `DOCLING_MCP_SERVICE_URL
 
 ### 3. Use in Agent Mode
 
-Open Continue in VS Code, switch to **Agent** mode, and try:
+Open Continue in VS Code, switch to **Agent** mode, and try the following prompts one at a time:
 
 ```text
-Convert https://arxiv.org/pdf/2501.17887 and summarize the key findings
+Use Docling to convert https://arxiv.org/pdf/2501.17887 and tell me the document key.
+```
+
+```text
+Use Docling to save that document, and tell me the file paths it was saved to.
+```
+
+```text
+Export that document as markdown with a max_size of 6000 characters, then give me a concise 3-bullet executive summary.
 ```
 
 ## Available MCP Tools
